@@ -1,0 +1,156 @@
+@{
+    ViewData["Title"] = "Admin";
+    var pending = (System.Collections.Generic.List<H_M_Collection.Models.Comment>)ViewBag.PendingComments;
+    var approved = (System.Collections.Generic.List<H_M_Collection.Models.Comment>)ViewBag.ApprovedComments;
+    var photos = (System.Collections.Generic.List<H_M_Collection.Models.Photo>)ViewBag.Photos;
+}
+
+<div class="py-3" data-aos="fade-up">
+    <div class="section-header-plain">
+        <h2 class="mb-0">Admin Paneli</h2>
+        <div class="kpi-inline">
+            <span>Bekleyen: <b>@pending.Count</b></span>
+            <span>Onaylı: <b>@approved.Count</b></span>
+            <span>Fotoğraf: <b>@photos.Count</b></span>
+        </div>
+    </div>
+    @if (TempData["AdminMsg"] != null)
+    {
+        <div class="alert alert-info">@TempData["AdminMsg"]</div>
+    }
+
+    <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-right">
+            <div class="section">
+                <div class="section-header-plain">
+                    <h5 class="mb-0">Onay Bekleyen Yorumlar</h5>
+                </div>
+                @if (pending.Any())
+                {
+                    <ul class="list-plain">
+                        @foreach (var c in pending)
+                        {
+                            <li>
+                                <div class="d-flex w-100 justify-content-between flex-wrap gap-2">
+                                    <div>
+                                        <div class="fw-semibold">@c.CustomerName</div>
+                                        <div class="text-muted small">@c.CreatedAt.ToLocalTime().ToString("g")</div>
+                                        <div>@c.Content</div>
+                                    </div>
+                                    <div class="inline-actions">
+                                        <form asp-action="ApproveComment" method="post">
+                                            <input type="hidden" name="id" value="@c.Id" />
+                                            <button class="btn btn-primary btn-sm" type="submit">Onayla</button>
+                                            @Html.AntiForgeryToken()
+                                        </form>
+                                        <form asp-action="DeleteComment" method="post">
+                                            <input type="hidden" name="id" value="@c.Id" />
+                                            <button class="btn btn-outline-danger btn-sm" type="submit">Sil</button>
+                                            @Html.AntiForgeryToken()
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="alert alert-secondary mb-0">Onay bekleyen yorum bulunmuyor.</div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-6" data-aos="fade-left">
+            <div class="section">
+                <div class="section-header-plain">
+                    <h5 class="mb-0">Onaylı Yorumlar</h5>
+                </div>
+                @if (approved.Any())
+                {
+                    <ul class="list-plain">
+                        @foreach (var c in approved)
+                        {
+                            <li>
+                                <div class="d-flex w-100 justify-content-between flex-wrap gap-2">
+                                    <div>
+                                        <div class="fw-semibold">@c.CustomerName</div>
+                                        <div class="text-muted small">@c.CreatedAt.ToLocalTime().ToString("g")</div>
+                                        <div>@c.Content</div>
+                                    </div>
+                                    <div class="inline-actions">
+                                        <form asp-action="DeleteComment" method="post">
+                                            <input type="hidden" name="id" value="@c.Id" />
+                                            <button class="btn btn-outline-danger btn-sm" type="submit">Sil</button>
+                                            @Html.AntiForgeryToken()
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div class="alert alert-secondary mb-0">Onaylı yorum bulunmuyor.</div>
+                }
+            </div>
+
+            <div class="section">
+                <div class="section-header-plain">
+                    <h5 class="mb-0">Fotoğraf Yükle</h5>
+                </div>
+                <form asp-action="UploadPhoto" method="post" enctype="multipart/form-data">
+                    <div class="upload-inline">
+                        <div>
+                            <label class="form-label">Dosya</label>
+                            <input type="file" name="file" class="form-control" accept="image/*" />
+                        </div>
+                        <div>
+                            <label class="form-label">Açıklama</label>
+                            <input type="text" name="caption" class="form-control" />
+                        </div>
+                        <div>
+                            <button class="btn btn-primary" type="submit" style="margin-top:32px">Yükle</button>
+                        </div>
+                    </div>
+                    @Html.AntiForgeryToken()
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" data-aos="fade-up">
+        <div class="section-header-plain">
+            <h5 class="mb-0">Yüklenen Fotoğraflar</h5>
+        </div>
+        <div class="row g-3">
+            @if (photos.Any())
+            {
+                foreach (var p in photos)
+                {
+                    <div class="col-6 col-md-3">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="@Url.Content($"~/uploads/{p.FileName}")" alt="@p.Caption" />
+                            <div class="card-body py-2">
+                                <p class="card-text small mb-2">@p.Caption</p>
+                                <form asp-action="DeletePhoto" method="post">
+                                    <input type="hidden" name="id" value="@p.Id" />
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sil</button>
+                                    @Html.AntiForgeryToken()
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <div class="alert alert-secondary">Henüz fotoğraf yüklenmedi.</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+

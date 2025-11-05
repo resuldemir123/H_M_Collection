@@ -1,0 +1,100 @@
+﻿@model H_M_Collection.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="main-bg">
+
+<div class="hero mb-4" data-aos="fade-up">
+    <span class="accent-badge mb-2">H M Collection</span>
+    <h1 class="mb-2">Zarafet ve Kalitenin Buluşma Noktası</h1>
+    <p class="mb-0">Özenle seçilmiş koleksiyonumuzla tanışın ve müşterilerimizin deneyimlerini keşfedin.</p>
+    <div class="mt-3">
+        <a class="btn btn-light btn-sm me-2" href="#galeri">Galeriyi Gör</a>
+        <a class="btn btn-secondary btn-sm" href="#yorum">Yorum Bırak</a>
+    </div>
+    
+    
+</div>
+
+<div id="galeri" class="row mb-4">
+    <div class="col-12">
+        <h2 class="mb-3">Fotoğraf Galerisi</h2>
+        <div class="row g-3">
+            @if (Model.Photos.Any())
+            {
+                foreach (var p in Model.Photos)
+                {
+                    var commentsForPhoto = Model.ApprovedComments.Where(c => c.PhotoId == p.Id).OrderByDescending(c => c.CreatedAt).ToList();
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="card h-100 shadow-sm photo-card">
+                            <img class="card-img-top" src="@Url.Content($"~/uploads/{p.FileName}")" alt="@p.Caption" />
+                            <div class="card-body">
+                                @if (!string.IsNullOrWhiteSpace(p.Caption))
+                                {
+                                    <p class="card-text small mb-3">@p.Caption</p>
+                                }
+
+                                <h6 class="mb-2">Bu fotoğrafa yapılan yorumlar</h6>
+                                @if (commentsForPhoto.Any())
+                                {
+                                    <ul class="list-unstyled small mb-0">
+                                        @foreach (var c in commentsForPhoto)
+                                        {
+                                            <li class="mb-2 border-top pt-2">
+                                                <div class="d-flex justify-content-between">
+                                                    <strong>@c.CustomerName</strong>
+                                                    <span class="text-muted">@c.CreatedAt.ToLocalTime().ToString("g")</span>
+                                                </div>
+                                                <div>@c.Content</div>
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <div class="text-muted small">Bu fotoğrafa henüz yorum yapılmadı.</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col-12">
+                    <div class="alert alert-info">Henüz yüklenmiş fotoğraf yok.</div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4" data-aos="fade-left"></div>
+</div>
+
+<div class="row g-4 mt-2" data-aos="fade-up">
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="mb-2">Vizyonumuz</h3>
+                <p class="mb-0">Sektörde zarafet ve kalite denince akla gelen ilk marka olmak.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card h-100">
+            <div class="card-body">
+                <h3 class="mb-2">Misyonumuz</h3>
+                <p class="mb-0">Her müşteriye kişiselleştirilmiş, özenli ve sürdürülebilir bir deneyim sağlamak.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

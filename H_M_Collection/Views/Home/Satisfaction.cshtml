@@ -1,0 +1,145 @@
+@{
+    ViewData["Title"] = "Müşteri Memnuniyeti";
+}
+
+<div class="hero mb-4" data-aos="fade-up">
+    <span class="accent-badge mb-2">Geri Bildirim</span>
+    <h2 class="mb-2">Memnuniyet Önceliğimiz</h2>
+    <p class="mb-0">Süreçlerimizi yorumlarınıza göre sürekli iyileştiriyoruz.</p>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4" data-aos="zoom-in">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Hızlı Dönüş</h5>
+                <p class="card-text">Sorularınıza en geç 24 saat içinde dönüş yapıyoruz.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Özenli Paketleme</h5>
+                <p class="card-text">Ürünleriniz güvenli ve zarif bir şekilde paketlenir.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Kolay İade</h5>
+                <p class="card-text">Memnun kalmadığınızda hızlı ve kolay iade süreci.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4" data-aos="fade-up">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title mb-3">Müşterilerimizle Anlar — Fotoğraf Ekle</h5>
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-info">@TempData["Message"]</div>
+            }
+            <form asp-action="UploadSatisfactionPhoto" method="post" enctype="multipart/form-data">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-5">
+                        <label class="form-label">Fotoğraf</label>
+                        <input type="file" name="file" class="form-control" accept="image/*" />
+                    </div>
+                    <div class="col-md-5">
+                        <label class="form-label">Açıklama (isteğe bağlı)</label>
+                        <input type="text" name="caption" class="form-control" />
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100" type="submit">Yükle</button>
+                    </div>
+                </div>
+                @Html.AntiForgeryToken()
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4" data-aos="fade-up" id="yorum">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title mb-3">Yorum Bırakın</h5>
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success">@TempData["Message"]</div>
+            }
+            <form asp-action="SubmitComment" method="post" enctype="multipart/form-data">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Adınız</label>
+                        <input class="form-control" name="NewCommentCustomerName" />
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Yorumunuz</label>
+                        <textarea class="form-control" rows="4" name="NewCommentContent"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Fotoğraf (isteğe bağlı)</label>
+                        <input class="form-control" type="file" name="NewCommentPhoto" accept="image/*" />
+                        <div class="form-text">Yüklediğiniz fotoğrafın altında yorumunuz yayınlanır.</div>
+                    </div>
+                </div>
+                <input type="hidden" name="RecaptchaToken" id="RecaptchaToken" />
+                <div class="mt-3 d-flex gap-2">
+                    <button class="btn btn-primary" type="submit">Gönder</button>
+                </div>
+                @Html.AntiForgeryToken()
+            </form>
+            @if (!string.IsNullOrWhiteSpace((string?)ViewBag.RecaptchaSiteKey))
+            {
+                <script src="https://www.google.com/recaptcha/api.js?render=@ViewBag.RecaptchaSiteKey"></script>
+                <script>
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute('@ViewBag.RecaptchaSiteKey', { action: 'submit' }).then(function (token) {
+                            var el = document.getElementById('RecaptchaToken');
+                            if (el) el.value = token;
+                        });
+                    });
+                </script>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="mt-4" data-aos="fade-up">
+    <h5 class="mb-3">Paylaşılan Fotoğraflar</h5>
+    <div class="row g-3">
+        @{
+            var photos = (System.Collections.Generic.List<H_M_Collection.Models.Photo>)ViewBag.Photos;
+        }
+        @if (photos != null && photos.Any())
+        {
+            foreach (var p in photos)
+            {
+                <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+                    <div class="card h-100">
+                        <img class="card-img-top" src="@Url.Content($"~/uploads/{p.FileName}")" alt="@p.Caption" />
+                        @if (!string.IsNullOrWhiteSpace(p.Caption))
+                        {
+                            <div class="card-body py-2">
+                                <p class="card-text small mb-0">@p.Caption</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-secondary mb-0">Henüz fotoğraf yok.</div>
+            </div>
+        }
+    </div>
+</div>
+
+
