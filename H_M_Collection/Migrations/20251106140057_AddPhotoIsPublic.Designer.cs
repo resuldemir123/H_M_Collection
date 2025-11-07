@@ -4,6 +4,7 @@ using H_M_Collection.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace H_M_Collection.Migrations
 {
     [DbContext(typeof(H_M_CollectionDbContext))]
-    partial class H_M_CollectionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251106140057_AddPhotoIsPublic")]
+    partial class AddPhotoIsPublic
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

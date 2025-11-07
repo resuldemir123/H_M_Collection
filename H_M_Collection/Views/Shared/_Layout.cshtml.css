@@ -39,10 +39,9 @@ button.accept-policy {
   line-height: inherit;
 }
 
+/* Remove absolute positioning so global site.css flexbox layout controls footer */
 .footer {
-  position: absolute;
-  bottom: 0;
+  position: static;
   width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+  line-height: normal;
 }

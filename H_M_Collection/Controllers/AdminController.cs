@@ -79,7 +79,7 @@ namespace H_M_Collection.Controllers
                 file.CopyTo(stream);
             }
 
-            _db.Photos.Add(new Photo { FileName = fileName, Caption = caption });
+            _db.Photos.Add(new Photo { FileName = fileName, Caption = caption, IsPublic = true });
             _db.SaveChanges();
 
             TempData["AdminMsg"] = "Fotoğraf yüklendi.";

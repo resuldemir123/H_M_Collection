@@ -1,59 +1,64 @@
 ﻿@model H_M_Collection.Models.HomeViewModel
 @{
-    ViewData["Title"] = "Anasayfa";
+    ViewData["Title"] = "H M Collection - Zarafet ve Kalitenin Buluşma Noktası";
 }
 
-<div class="main-bg">
-
-<div class="hero mb-4" data-aos="fade-up">
-    <span class="accent-badge mb-2">H M Collection</span>
-    <h1 class="mb-2">Zarafet ve Kalitenin Buluşma Noktası</h1>
-    <p class="mb-0">Özenle seçilmiş koleksiyonumuzla tanışın ve müşterilerimizin deneyimlerini keşfedin.</p>
-    <div class="mt-3">
-        <a class="btn btn-light btn-sm me-2" href="#galeri">Galeriyi Gör</a>
-        <a class="btn btn-secondary btn-sm" href="#yorum">Yorum Bırak</a>
+<!-- Hero Section -->
+<section class="hero-section" style="background-image: linear-gradient(rgba(26,35,126,0.65), rgba(40,53,147,0.65)), url('@Url.Content("~/img/dukkan.jpg")'); background-size: cover; background-position: center;">
+    <div class="container">
+        <div class="hero-content text-center">
+            <span class="hero-badge">Premium Koleksiyon</span>
+            <h1 class="hero-title">Zarafet ve Kalitenin <br>Buluşma Noktası</h1>
+            <p class="hero-subtitle">Özenle seçilmiş koleksiyonumuzla stil sahibi olmanın <br>farkını yaşayın</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="#gallery" class="btn btn-light btn-lg px-4">Koleksiyonu Keşfet</a>
+                <a href="#comments" class="btn btn-outline-light btn-lg px-4">Deneyimleri Gör</a>
+            </div>
+        </div>
     </div>
-    
-    
-</div>
+</section>
 
-<div id="galeri" class="row mb-4">
-    <div class="col-12">
-        <h2 class="mb-3">Fotoğraf Galerisi</h2>
-        <div class="row g-3">
+<!-- Gallery Section -->
+<section id="gallery" class="section">
+    <div class="container">
+        <h2 class="section-title">Fotoğraf Galerisi</h2>
+        <div class="row g-4">
             @if (Model.Photos.Any())
             {
-                foreach (var p in Model.Photos)
+                foreach (var photo in Model.Photos)
                 {
-                    var commentsForPhoto = Model.ApprovedComments.Where(c => c.PhotoId == p.Id).OrderByDescending(c => c.CreatedAt).ToList();
-                    <div class="col-12 col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="100">
-                        <div class="card h-100 shadow-sm photo-card">
-                            <img class="card-img-top" src="@Url.Content($"~/uploads/{p.FileName}")" alt="@p.Caption" />
+                    var commentsForPhoto = Model.ApprovedComments.Where(c => c.PhotoId == photo.Id).OrderByDescending(c => c.CreatedAt).ToList();
+                    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up">
+                        <div class="photo-card">
+                            <img src="@Url.Content($"~/uploads/{photo.FileName}")" class="card-img-top" alt="@photo.Caption">
                             <div class="card-body">
-                                @if (!string.IsNullOrWhiteSpace(p.Caption))
+                                @if (!string.IsNullOrWhiteSpace(photo.Caption))
                                 {
-                                    <p class="card-text small mb-3">@p.Caption</p>
+                                    <p class="text-muted mb-3">@photo.Caption</p>
                                 }
 
-                                <h6 class="mb-2">Bu fotoğrafa yapılan yorumlar</h6>
                                 @if (commentsForPhoto.Any())
                                 {
-                                    <ul class="list-unstyled small mb-0">
-                                        @foreach (var c in commentsForPhoto)
+                                    <h6 class="fw-semibold mb-3">Müşteri Yorumları</h6>
+                                    <div class="comments-container">
+                                        @foreach (var comment in commentsForPhoto)
                                         {
-                                            <li class="mb-2 border-top pt-2">
-                                                <div class="d-flex justify-content-between">
-                                                    <strong>@c.CustomerName</strong>
-                                                    <span class="text-muted">@c.CreatedAt.ToLocalTime().ToString("g")</span>
+                                            <div class="comment-card">
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <strong class="text-brand">@comment.CustomerName</strong>
+                                                    <small class="text-muted">@comment.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</small>
                                                 </div>
-                                                <div>@c.Content</div>
-                                            </li>
+                                                <p class="mb-0">@comment.Content</p>
+                                            </div>
                                         }
-                                    </ul>
+                                    </div>
                                 }
                                 else
                                 {
-                                    <div class="text-muted small">Bu fotoğrafa henüz yorum yapılmadı.</div>
+                                    <div class="text-center text-muted py-3">
+                                        <i class="fas fa-comment-slash fa-2x mb-2"></i>
+                                        <p class="mb-0">Henüz yorum yapılmadı</p>
+                                    </div>
                                 }
                             </div>
                         </div>
@@ -62,39 +67,96 @@
             }
             else
             {
-                <div class="col-12">
-                    <div class="alert alert-info">Henüz yüklenmiş fotoğraf yok.</div>
+                <div class="col-12 text-center">
+                    <div class="py-5">
+                        <i class="fas fa-images fa-3x text-muted mb-3"></i>
+                        <h4 class="text-muted">Henüz fotoğraf yüklenmedi</h4>
+                    </div>
                 </div>
             }
         </div>
     </div>
-</div>
+</section>
 
-<div class="row">
-    <div class="col-md-6 mb-4" data-aos="fade-left"></div>
-</div>
-
-<div class="row g-4 mt-2" data-aos="fade-up">
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="mb-2">Vizyonumuz</h3>
-                <p class="mb-0">Sektörde zarafet ve kalite denince akla gelen ilk marka olmak.</p>
+<!-- Features Section -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="display-5 fw-bold mb-4">Kalite ve Zarafet <span class="text-gradient">Bir Arada</span></h2>
+                <p class="lead mb-4">Her biri özenle seçilmiş ürünlerimizle, size en kaliteli ve şık deneyimi sunmayı taahhüt ediyoruz.</p>
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-check-circle text-brand me-3 fs-5"></i>
+                        <span>Premium kalite malzemeler</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-check-circle text-brand me-3 fs-5"></i>
+                        <span>Özenle işçilik</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-check-circle text-brand me-3 fs-5"></i>
+                        <span>Zamansız tasarımlar</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="border-radius-lg overflow-hidden shadow-soft">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                         alt="Premium Kalite" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="card h-100">
-            <div class="card-body">
-                <h3 class="mb-2">Misyonumuz</h3>
-                <p class="mb-0">Her müşteriye kişiselleştirilmiş, özenli ve sürdürülebilir bir deneyim sağlamak.</p>
+</section>
+
+<!-- Stats Section -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <div class="col-md-3" data-aos="fade-up">
+                <div class="p-4">
+                    <h3 class="display-4 fw-bold text-brand mb-2">500+</h3>
+                    <p class="text-muted">Mutlu Müşteri</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="p-4">
+                    <h3 class="display-4 fw-bold text-brand mb-2">1000+</h3>
+                    <p class="text-muted">Ürün Çeşidi</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="p-4">
+                    <h3 class="display-4 fw-bold text-brand mb-2">5 Yıl</h3>
+                    <p class="text-muted">Sektör Deneyimi</p>
+                </div>
+            </div>
+            <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="p-4">
+                    <h3 class="display-4 fw-bold text-brand mb-2">%98</h3>
+                    <p class="text-muted">Memnuniyet Oranı</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-</div>
+</section>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 }

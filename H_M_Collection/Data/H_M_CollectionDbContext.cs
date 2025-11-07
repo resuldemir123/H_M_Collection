@@ -33,9 +33,8 @@ namespace H_M_Collection.Data
                 entity.Property(p => p.FileName).HasMaxLength(255).IsRequired();
                 entity.Property(p => p.Caption).HasMaxLength(500);
                 entity.Property(p => p.UploadedAt).HasDefaultValueSql("GETUTCDATE()");
+                entity.Property(p => p.IsPublic).HasDefaultValue(false);
             });
         }
     }
 }
-
- 

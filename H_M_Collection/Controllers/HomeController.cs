@@ -27,13 +27,19 @@ namespace H_M_Collection.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.RecaptchaSiteKey = _config.GetValue<string>("GoogleReCaptcha:SiteKey");
+
             var model = new HomeViewModel
             {
+                // show only admin-shared (public) photos on the home page
                 Photos = _db.Photos
+                    .Where(p => p.IsPublic)
                     .OrderByDescending(p => p.UploadedAt)
                     .ToList(),
+                // include comments that are approved OR comments that belong to a public photo
                 ApprovedComments = _db.Comments
-                    .Where(c => c.IsApproved)
+                    .Include(c => c.Photo)
+                    .Where(c => c.IsApproved || (c.Photo != null && c.Photo.IsPublic))
                     .OrderByDescending(c => c.CreatedAt)
                     .ToList()
             };
@@ -47,7 +53,7 @@ namespace H_M_Collection.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SubmitComment(HomeViewModel form)
+        public IActionResult SubmitComment(HomeViewModel form, int? photoId)
         {
             if (string.IsNullOrWhiteSpace(form.NewCommentCustomerName) || string.IsNullOrWhiteSpace(form.NewCommentContent))
             {
@@ -116,21 +122,40 @@ namespace H_M_Collection.Controllers
                         form.NewCommentPhoto.CopyTo(stream);
                     }
 
-                    var photo = new Photo { FileName = fileName };
+                    var photo = new Photo { FileName = fileName, IsPublic = false };
                     _db.Photos.Add(photo);
                     _db.SaveChanges();
                     createdPhotoId = photo.Id;
+                }
+
+                // Decide approval: if comment targets a public (admin) photo, publish immediately; otherwise require approval
+                bool publishImmediately = false;
+                if (photoId.HasValue)
+                {
+                    var targetPhoto = _db.Photos.FirstOrDefault(p => p.Id == photoId.Value);
+                    if (targetPhoto != null && targetPhoto.IsPublic)
+                    {
+                        publishImmediately = true;
+                    }
                 }
 
                 _db.Comments.Add(new Comment
                 {
                     CustomerName = form.NewCommentCustomerName!.Trim(),
                     Content = form.NewCommentContent!.Trim(),
-                    IsApproved = false,
-                    PhotoId = createdPhotoId
+                    IsApproved = publishImmediately,
+                    PhotoId = photoId ?? createdPhotoId
                 });
                 _db.SaveChanges();
-                TempData["Message"] = "Yorumunuz alındı, onay sonrası yayınlanacaktır.";
+
+                TempData["Message"] = publishImmediately ? "Yorumunuz yayınlandı." : "Yorumunuz alındı, onay sonrası yayınlanacaktır.";
+
+                // Redirect back to relevant page
+                if (photoId.HasValue || createdPhotoId.HasValue)
+                {
+                    return RedirectToAction("Index");
+                }
+
                 return RedirectToAction("Satisfaction");
             }
 
@@ -147,7 +172,9 @@ namespace H_M_Collection.Controllers
 
         public IActionResult Satisfaction()
         {
+            // show only user-shared (private) photos on Satisfaction page
             ViewBag.Photos = _db.Photos
+                .Where(p => !p.IsPublic)
                 .OrderByDescending(p => p.UploadedAt)
                 .ToList();
             ViewBag.RecaptchaSiteKey = _config.GetValue<string>("GoogleReCaptcha:SiteKey");
@@ -182,7 +209,8 @@ namespace H_M_Collection.Controllers
                 file.CopyTo(stream);
             }
 
-            _db.Photos.Add(new Photo { FileName = fileName, Caption = caption });
+            // user uploads are private by default
+            _db.Photos.Add(new Photo { FileName = fileName, Caption = caption, IsPublic = false });
             _db.SaveChanges();
             TempData["Message"] = "Fotoğraf yüklendi.";
             return RedirectToAction("Satisfaction");
