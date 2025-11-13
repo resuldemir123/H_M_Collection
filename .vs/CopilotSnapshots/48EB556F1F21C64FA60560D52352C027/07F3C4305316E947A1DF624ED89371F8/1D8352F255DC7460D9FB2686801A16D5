@@ -1,0 +1,110 @@
+﻿using System.IO;
+using System.Linq;
+using H_M_Collection.Data;
+using H_M_Collection.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+namespace H_M_Collection.Controllers
+{
+    public class AdminController : Controller
+    {
+        private readonly H_M_CollectionDbContext _db;
+        private readonly IWebHostEnvironment _env;
+
+        public AdminController(H_M_CollectionDbContext db, IWebHostEnvironment env)
+        {
+            _db = db;
+            _env = env;
+        }
+
+        public IActionResult Index()
+        {
+            var pendingComments = _db.Comments.Where(c => !c.IsApproved).OrderByDescending(c => c.CreatedAt).ToList();
+            var approvedComments = _db.Comments.Where(c => c.IsApproved).OrderByDescending(c => c.CreatedAt).ToList();
+            var photos = _db.Photos.OrderByDescending(p => p.UploadedAt).ToList();
+            ViewBag.PendingComments = pendingComments;
+            ViewBag.ApprovedComments = approvedComments;
+            ViewBag.Photos = photos;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult ApproveComment(int id)
+        {
+            var c = _db.Comments.FirstOrDefault(x => x.Id == id);
+            if (c != null)
+            {
+                c.IsApproved = true;
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeleteComment(int id)
+        {
+            var c = _db.Comments.FirstOrDefault(x => x.Id == id);
+            if (c != null)
+            {
+                _db.Comments.Remove(c);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UploadPhoto(IFormFile file, string? caption)
+        {
+            if (file == null || file.Length == 0)
+            {
+                TempData["AdminMsg"] = "Lütfen bir dosya seçin.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            var uploadsPath = Path.Combine(_env.WebRootPath, "uploads");
+            if (!Directory.Exists(uploadsPath))
+            {
+                Directory.CreateDirectory(uploadsPath);
+            }
+
+            var fileName = Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + Path.GetExtension(file.FileName);
+            var fullPath = Path.Combine(uploadsPath, fileName);
+            using (var stream = System.IO.File.Create(fullPath))
+            {
+                file.CopyTo(stream);
+            }
+
+            _db.Photos.Add(new Photo { FileName = fileName, Caption = caption, IsPublic = true });
+            _db.SaveChanges();
+
+            TempData["AdminMsg"] = "Fotoğraf yüklendi.";
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePhoto(int id)
+        {
+            var p = _db.Photos.FirstOrDefault(x => x.Id == id);
+            if (p != null)
+            {
+                var uploadsPath = Path.Combine(_env.WebRootPath, "uploads");
+                var fullPath = Path.Combine(uploadsPath, p.FileName);
+                if (System.IO.File.Exists(fullPath))
+                {
+                    System.IO.File.Delete(fullPath);
+                }
+                _db.Photos.Remove(p);
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}
+
+

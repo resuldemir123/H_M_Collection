@@ -1,0 +1,19 @@
+﻿{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "GoogleReCaptcha": {
+    "SiteKey": "",
+    "SecretKey": ""
+  },
+  "Smtp": {
+    "Host": "smtp.example.com",
+    "Port": "587",
+    "User": "your-smtp-user",
+    "Pass": "your-smtp-password",
+    "From": "no-reply@hmcollection.com"
+  }
+}

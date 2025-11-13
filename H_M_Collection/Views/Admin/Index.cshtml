@@ -205,6 +205,24 @@
                                                 </button>
                                                 @Html.AntiForgeryToken()
                                             </form>
+                                            <div class="mt-2 d-flex gap-2">
+                                                @if (p.IsPublic)
+                                                {
+                                                    <form asp-action="SetPhotoPrivate" method="post" class="d-inline">
+                                                        <input type="hidden" name="id" value="@p.Id" />
+                                                        <button class="btn btn-warning btn-sm w-100" type="submit">Gizle</button>
+                                                        @Html.AntiForgeryToken()
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <form asp-action="SetPhotoPublic" method="post" class="d-inline">
+                                                        <input type="hidden" name="id" value="@p.Id" />
+                                                        <button class="btn btn-success btn-sm w-100" type="submit">Ana Sayfada Göster</button>
+                                                        @Html.AntiForgeryToken()
+                                                    </form>
+                                                }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

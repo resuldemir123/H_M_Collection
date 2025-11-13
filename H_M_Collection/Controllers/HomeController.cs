@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Net.Http;
+using H_M_Collection.Services;
+using System.Threading.Tasks;
 
 namespace H_M_Collection.Controllers
 {
@@ -16,13 +18,15 @@ namespace H_M_Collection.Controllers
         private readonly H_M_CollectionDbContext _db;
         private readonly IWebHostEnvironment _env;
         private readonly IConfiguration _config;
+        private readonly IEmailSender _emailSender;
 
-        public HomeController(ILogger<HomeController> logger, H_M_CollectionDbContext db, IWebHostEnvironment env, IConfiguration config)
+        public HomeController(ILogger<HomeController> logger, H_M_CollectionDbContext db, IWebHostEnvironment env, IConfiguration config, IEmailSender emailSender)
         {
             _logger = logger;
             _db = db;
             _env = env;
             _config = config;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -53,7 +57,7 @@ namespace H_M_Collection.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult SubmitComment(HomeViewModel form, int? photoId)
+        public async Task<IActionResult> SubmitComment(HomeViewModel form, int? photoId)
         {
             if (string.IsNullOrWhiteSpace(form.NewCommentCustomerName) || string.IsNullOrWhiteSpace(form.NewCommentContent))
             {
@@ -130,23 +134,41 @@ namespace H_M_Collection.Controllers
 
                 // Decide approval: if comment targets a public (admin) photo, publish immediately; otherwise require approval
                 bool publishImmediately = false;
+                Photo? targetPhoto = null;
                 if (photoId.HasValue)
                 {
-                    var targetPhoto = _db.Photos.FirstOrDefault(p => p.Id == photoId.Value);
+                    targetPhoto = _db.Photos.FirstOrDefault(p => p.Id == photoId.Value);
                     if (targetPhoto != null && targetPhoto.IsPublic)
                     {
                         publishImmediately = true;
                     }
                 }
 
-                _db.Comments.Add(new Comment
+                var comment = new Comment
                 {
                     CustomerName = form.NewCommentCustomerName!.Trim(),
                     Content = form.NewCommentContent!.Trim(),
                     IsApproved = publishImmediately,
                     PhotoId = photoId ?? createdPhotoId
-                });
+                };
+
+                _db.Comments.Add(comment);
                 _db.SaveChanges();
+
+                // If comment requires approval, notify admin by email
+                if (!publishInterestingly(publishImmediately: publishImmediately))
+                {
+                    // fallback admin email from config or default
+                    var adminEmail = _config["Admin:Email"] ?? _config["Smtp:From"] ?? "admin@hmcollection.com";
+                    try
+                    {
+                        await _emailSender.SendEmailAsync(adminEmail, "Yeni onay bekleyen yorum", $"Yeni yorum ID: {comment.Id}\nGönderen: {comment.CustomerName}\nİçerik: {comment.Content}");
+                    }
+                    catch (Exception ex)
+                    {
+                        _logger.LogError(ex, "Admin e-posta bildirim gönderilemedi");
+                    }
+                }
 
                 TempData["Message"] = publishImmediately ? "Yorumunuz yayınlandı." : "Yorumunuz alındı, onay sonrası yayınlanacaktır.";
 
@@ -164,6 +186,8 @@ namespace H_M_Collection.Controllers
             ViewBag.RecaptchaSiteKey = _config.GetValue<string>("GoogleReCaptcha:SiteKey");
             return View("Satisfaction");
         }
+
+        private bool publishInterestingly(bool publishImmediately) => publishImmediately;
 
         public IActionResult About()
         {
@@ -188,11 +212,45 @@ namespace H_M_Collection.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [RequestSizeLimit(50 *1024 *1024)]
+        [RequestFormLimits(MultipartBodyLengthLimit =50 *1024 *1024)]
         public IActionResult UploadSatisfactionPhoto(IFormFile file, string? caption)
         {
             if (file == null || file.Length == 0)
             {
-                TempData["Message"] = "Lütfen bir fotoğraf seçin.";
+                TempData["Message"] = "Lütfen bir fotoğraf veya video seçin.";
+                return RedirectToAction("Satisfaction");
+            }
+
+            // Allowed extensions and content types
+            var allowedImageExts = new[] { ".jpg", ".jpeg", ".png", ".webp" };
+            var allowedVideoExts = new[] { ".mp4", ".webm" };
+            var allowedImageTypes = new[] { "image/jpeg", "image/png", "image/webp" };
+            var allowedVideoTypes = new[] { "video/mp4", "video/webm" };
+
+            var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
+            var contentType = file.ContentType?.ToLowerInvariant() ?? string.Empty;
+
+            var isImage = allowedImageExts.Contains(ext) && allowedImageTypes.Contains(contentType);
+            var isVideo = allowedVideoExts.Contains(ext) && allowedVideoTypes.Contains(contentType);
+
+            if (!isImage && !isVideo)
+            {
+                TempData["Message"] = "Sadece JPG, PNG, WEBP, MP4 veya WEBM dosyaları kabul edilir.";
+                return RedirectToAction("Satisfaction");
+            }
+
+            // Size limits: images5MB, videos50MB
+            var maxImageBytes = 5 * 1024 * 1024;
+            var maxVideoBytes = 50 * 1024 * 1024;
+            if (isImage && file.Length > maxImageBytes)
+            {
+                TempData["Message"] = "Görüntü dosyası boyutu5MB'ı geçmemelidir.";
+                return RedirectToAction("Satisfaction");
+            }
+            if (isVideo && file.Length > maxVideoBytes)
+            {
+                TempData["Message"] = "Video dosyası boyutu50MB'ı geçmemelidir.";
                 return RedirectToAction("Satisfaction");
             }
 
@@ -202,17 +260,17 @@ namespace H_M_Collection.Controllers
                 Directory.CreateDirectory(uploadsPath);
             }
 
-            var fileName = Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + Path.GetExtension(file.FileName);
+            var safeExt = Path.GetExtension(file.FileName);
+            var fileName = Path.GetFileNameWithoutExtension(Path.GetRandomFileName()) + safeExt;
             var fullPath = Path.Combine(uploadsPath, fileName);
             using (var stream = System.IO.File.Create(fullPath))
             {
                 file.CopyTo(stream);
             }
 
-            // user uploads are private by default
             _db.Photos.Add(new Photo { FileName = fileName, Caption = caption, IsPublic = false });
             _db.SaveChanges();
-            TempData["Message"] = "Fotoğraf yüklendi.";
+            TempData["Message"] = isVideo ? "Video yüklendi." : "Fotoğraf yüklendi.";
             return RedirectToAction("Satisfaction");
         }
 

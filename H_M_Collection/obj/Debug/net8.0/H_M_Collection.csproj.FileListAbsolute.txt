@@ -168,4 +168,12 @@ C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\obj\Debug\net8.0\
 C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\obj\Debug\net8.0\H_M_Collection.pdb
 C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\obj\Debug\net8.0\H_M_Collection.genruntimeconfig.cache
 C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\obj\Debug\net8.0\ref\H_M_Collection.dll
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\obj\Debug\net8.0\H_M_Collection.sourcelink.json
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\MailKit.dll
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\MimeKit.dll
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\resuldemir\Source\Repos\H_M_Collection\H_M_Collection\bin\Debug\net8.0\web.config

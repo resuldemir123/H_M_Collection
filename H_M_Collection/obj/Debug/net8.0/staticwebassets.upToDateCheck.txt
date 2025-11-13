@@ -1,5 +1,7 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\Alanya.jpg
+wwwroot\img\dukkan.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -58,4 +60,7 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
+wwwroot\uploads\1u35yolv.jpg
+wwwroot\uploads\a5ow1qqp.jpg
+wwwroot\uploads\ds5sy053.jpg
+wwwroot\uploads\g40aidec.jpg

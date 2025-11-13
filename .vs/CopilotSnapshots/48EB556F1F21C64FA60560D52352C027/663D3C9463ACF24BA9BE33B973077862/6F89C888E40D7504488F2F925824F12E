@@ -1,0 +1,193 @@
+﻿@{
+    ViewData["Title"] = "Müşteri Memnuniyeti - H M Collection";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content text-center">
+            <span class="hero-badge">Memnuniyet</span>
+            <h1 class="hero-title">Müşteri Memnuniyeti</h1>
+            <p class="hero-subtitle">Süreçlerimizi yorumlarınıza göre sürekli iyileştiriyoruz</p>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="card border-0 shadow-soft h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-wrapper bg-brand-extra-light text-brand rounded-circle mx-auto mb-3"
+                             style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bolt fa-2x"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-3">Hızlı Dönüş</h5>
+                        <p class="text-muted mb-0">Sorularınıza en geç 24 saat içinde dönüş yapıyoruz.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card border-0 shadow-soft h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-wrapper bg-brand-extra-light text-brand rounded-circle mx-auto mb-3"
+                             style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-gift fa-2x"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-3">Özenli Paketleme</h5>
+                        <p class="text-muted mb-0">Ürünleriniz güvenli ve zarif bir şekilde paketlenir.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card border-0 shadow-soft h-100 text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-wrapper bg-brand-extra-light text-brand rounded-circle mx-auto mb-3"
+                             style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-undo fa-2x"></i>
+                        </div>
+                        <h5 class="fw-semibold mb-3">Kolay İade</h5>
+                        <p class="text-muted mb-0">Memnun kalmadığınızda hızlı ve kolay iade süreci.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Photo Upload Section -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-soft">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="text-center mb-4">Fotoğraf Paylaşın</h3>
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                @TempData["Message"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+                        <form asp-action="UploadSatisfactionPhoto" method="post" enctype="multipart/form-data">
+                            <div class="row g-3 align-items-end">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Fotoğraf Seçin</label>
+                                    <input type="file" name="file" class="form-control" accept="image/*" required />
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-semibold">Açıklama</label>
+                                    <input type="text" name="caption" class="form-control" placeholder="İsteğe bağlı" />
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary w-100" type="submit">
+                                        <i class="fas fa-upload me-1"></i>Yükle
+                                    </button>
+                                </div>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comment Section -->
+<section class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-soft">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="text-center mb-4">Yorum Bırakın</h3>
+                        @if (TempData["Message"] != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                @TempData["Message"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        }
+                        <form asp-action="SubmitComment" method="post" enctype="multipart/form-data">
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Adınız *</label>
+                                    <input class="form-control" name="NewCommentCustomerName" placeholder="Adınızı yazın" required />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Yorumunuz *</label>
+                                    <textarea class="form-control" rows="4" name="NewCommentContent" placeholder="Yorumunuzu buraya yazın..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Fotoğraf (isteğe bağlı)</label>
+                                    <input class="form-control" type="file" name="NewCommentPhoto" accept="image/*" />
+                                    <div class="form-text">Yüklediğiniz fotoğrafın altında yorumunuz yayınlanır.</div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="RecaptchaToken" id="RecaptchaToken" />
+                            <div class="mt-4">
+                                <button class="btn btn-primary btn-lg w-100" type="submit">
+                                    <i class="fas fa-paper-plane me-2"></i>Yorumu Gönder
+                                </button>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+                        @if (!string.IsNullOrWhiteSpace((string?)ViewBag.RecaptchaSiteKey))
+                        {
+                            <script src="https://www.google.com/recaptcha/api.js?render=@ViewBag.RecaptchaSiteKey"></script>
+                            <script>
+                                grecaptcha.ready(function () {
+                                    grecaptcha.execute('@ViewBag.RecaptchaSiteKey', { action: 'submit' }).then(function (token) {
+                                        var el = document.getElementById('RecaptchaToken');
+                                        if (el) el.value = token;
+                                    });
+                                });
+                            </script>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title text-center">Paylaşılan Fotoğraflar</h2>
+        @{
+            var photos = (System.Collections.Generic.List<H_M_Collection.Models.Photo>)ViewBag.Photos;
+        }
+        @if (photos != null && photos.Any())
+        {
+            <div class="row g-4">
+                @foreach (var p in photos)
+                {
+                    <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in">
+                        <div class="card border-0 shadow-soft h-100">
+                            <img class="card-img-top" src="@Url.Content($"~/uploads/{p.FileName}")" alt="@p.Caption" style="height: 250px; object-fit: cover;">
+                            @if (!string.IsNullOrWhiteSpace(p.Caption))
+                            {
+                                <div class="card-body">
+                                    <p class="card-text small mb-0 text-center">@p.Caption</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5">
+                <i class="fas fa-images fa-3x text-muted mb-3"></i>
+                <p class="text-muted">Henüz fotoğraf paylaşılmadı</p>
+            </div>
+        }
+    </div>
+</section>

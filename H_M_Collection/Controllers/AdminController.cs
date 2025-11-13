@@ -5,22 +5,35 @@ using H_M_Collection.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using H_M_Collection.Services;
+using System.Threading.Tasks;
 
 namespace H_M_Collection.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly H_M_CollectionDbContext _db;
         private readonly IWebHostEnvironment _env;
+        private readonly IEmailSender _emailSender;
 
-        public AdminController(H_M_CollectionDbContext db, IWebHostEnvironment env)
+        public AdminController(H_M_CollectionDbContext db, IWebHostEnvironment env, IEmailSender emailSender)
         {
             _db = db;
             _env = env;
+            _emailSender = emailSender;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
+            // If user is not authenticated, redirect to login with returnUrl back to /Admin
+            if (!(User?.Identity?.IsAuthenticated ?? false))
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Index", "Admin") });
+            }
+
             var pendingComments = _db.Comments.Where(c => !c.IsApproved).OrderByDescending(c => c.CreatedAt).ToList();
             var approvedComments = _db.Comments.Where(c => c.IsApproved).OrderByDescending(c => c.CreatedAt).ToList();
             var photos = _db.Photos.OrderByDescending(p => p.UploadedAt).ToList();
@@ -39,6 +52,9 @@ namespace H_M_Collection.Controllers
             {
                 c.IsApproved = true;
                 _db.SaveChanges();
+                // send notification to admin email about approval (example)
+                var adminEmail = "admin@hmcollection.com";
+                _emailSender.SendEmailAsync(adminEmail, "Yorum Onaylandı", $"Yorum #{c.Id} onaylandı: {c.Content}").GetAwaiter().GetResult();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -103,6 +119,64 @@ namespace H_M_Collection.Controllers
                 _db.SaveChanges();
             }
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SetPhotoPublic(int id)
+        {
+            var p = _db.Photos.FirstOrDefault(x => x.Id == id);
+            if (p != null)
+            {
+                p.IsPublic = true;
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SetPhotoPrivate(int id)
+        {
+            var p = _db.Photos.FirstOrDefault(x => x.Id == id);
+            if (p != null)
+            {
+                p.IsPublic = false;
+                _db.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult TestEmail()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> TestEmail(string to, string subject, string body)
+        {
+            if (string.IsNullOrWhiteSpace(to))
+            {
+                TempData["AdminMsg"] = "Lütfen alıcı e-posta adresi girin.";
+                return RedirectToAction(nameof(TestEmail));
+            }
+
+            var sendSubject = string.IsNullOrWhiteSpace(subject) ? "H M Collection - Test E-Posta" : subject;
+            var sendBody = string.IsNullOrWhiteSpace(body) ? "Bu bir test e-postasıdır." : body;
+
+            try
+            {
+                await _emailSender.SendEmailAsync(to, sendSubject, sendBody);
+                TempData["AdminMsg"] = $"Test e-postası başarıyla gönderildi: {to}";
+            }
+            catch (System.Exception ex)
+            {
+                TempData["AdminMsg"] = $"E-posta gönderimi başarısız: {ex.Message}";
+            }
+
+            return RedirectToAction(nameof(TestEmail));
         }
     }
 }

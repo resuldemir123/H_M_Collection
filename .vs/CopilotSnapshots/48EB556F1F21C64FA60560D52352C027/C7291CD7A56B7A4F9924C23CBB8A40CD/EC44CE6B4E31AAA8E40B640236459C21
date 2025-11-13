@@ -1,0 +1,84 @@
+﻿using System;
+using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
+using Microsoft.Extensions.Configuration;
+
+namespace H_M_Collection.Services
+{
+ public class SmtpEmailSender : IEmailSender
+ {
+ private readonly IConfiguration _config;
+ public SmtpEmailSender(IConfiguration config)
+ {
+ _config = config;
+ }
+
+ public async Task SendEmailAsync(string to, string subject, string htmlBody)
+ {
+ var host = _config["Smtp:Host"];
+ var portString = _config["Smtp:Port"];
+ var user = _config["Smtp:User"];
+ var pass = _config["Smtp:Pass"];
+ var from = _config["Smtp:From"] ?? user ?? "no-reply@hmcollection.com";
+
+ if (string.IsNullOrWhiteSpace(host))
+ throw new InvalidOperationException("SMTP host is not configured (Smtp:Host).");
+
+ if (!int.TryParse(portString, out var port))
+ {
+ port =587; // default
+ }
+
+ // Optional flags (if not present defaults are used)
+ var useSsl = false;
+ var useStartTls = false;
+ var useSslConfig = _config["Smtp:UseSsl"];
+ var useStartTlsConfig = _config["Smtp:UseStartTls"];
+ if (!string.IsNullOrWhiteSpace(useSslConfig) && bool.TryParse(useSslConfig, out var parsedSsl)) useSsl = parsedSsl;
+ if (!string.IsNullOrWhiteSpace(useStartTlsConfig) && bool.TryParse(useStartTlsConfig, out var parsedTls)) useStartTls = parsedTls;
+
+ var email = new MimeMessage();
+ email.From.Add(MailboxAddress.Parse(from));
+ email.To.Add(MailboxAddress.Parse(to));
+ email.Subject = subject;
+ var body = new BodyBuilder { HtmlBody = htmlBody };
+ email.Body = body.ToMessageBody();
+
+ using var client = new SmtpClient();
+ try
+ {
+ SecureSocketOptions socketOptions = SecureSocketOptions.Auto;
+ if (useSsl)
+ {
+ socketOptions = SecureSocketOptions.SslOnConnect;
+ }
+ else if (useStartTls)
+ {
+ socketOptions = SecureSocketOptions.StartTls;
+ }
+ else
+ {
+ socketOptions = SecureSocketOptions.Auto;
+ }
+
+ await client.ConnectAsync(host, port, socketOptions);
+
+ if (!string.IsNullOrWhiteSpace(user) && !string.IsNullOrWhiteSpace(pass))
+ {
+ await client.AuthenticateAsync(user, pass);
+ }
+
+ await client.SendAsync(email);
+ }
+ finally
+ {
+ if (client.IsConnected)
+ {
+ await client.DisconnectAsync(true);
+ }
+ }
+ }
+ }
+}

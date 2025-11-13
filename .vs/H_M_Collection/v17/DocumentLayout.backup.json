@@ -3,16 +3,120 @@
   "WorkspaceRootPath": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\web.config||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\web.config||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\admin\\testemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\admin\\testemail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\controllers\\contactcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\h_m_collection.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\h_m_collection.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\models\\photo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\models\\photo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\services\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\services\\iemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\services\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\services\\smtpemailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\models\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\models\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\data\\h_m_collectiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\data\\h_m_collectiondbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\home\\satisfaction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\home\\satisfaction.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|c:\\users\\resuldemir\\source\\repos\\h_m_collection\\h_m_collection\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{6C73F635-D267-4ACE-815F-65A5BD4C6B3D}|H_M_Collection\\H_M_Collection.csproj|solutionrelative:h_m_collection\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,39 +143,379 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "web.config",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\web.config",
+              "RelativeDocumentMoniker": "H_M_Collection\\web.config",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\web.config",
+              "RelativeToolTip": "H_M_Collection\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-07T16:19:07.338Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestEmail.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Admin\\TestEmail.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Admin\\TestEmail.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Admin\\TestEmail.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Admin\\TestEmail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T16:02:23.596Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ContactController.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\ContactController.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Controllers\\ContactController.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\ContactController.cs",
+              "RelativeToolTip": "H_M_Collection\\Controllers\\ContactController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T16:00:19.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "H_M_Collection\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\appsettings.Development.json",
+              "RelativeToolTip": "H_M_Collection\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-07T15:33:59.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "H_M_Collection",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\H_M_Collection.csproj",
+              "RelativeDocumentMoniker": "H_M_Collection\\H_M_Collection.csproj",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\H_M_Collection.csproj",
+              "RelativeToolTip": "H_M_Collection\\H_M_Collection.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-07T15:32:02.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SmtpEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Services\\SmtpEmailSender.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Services\\SmtpEmailSender.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Services\\SmtpEmailSender.cs",
+              "RelativeToolTip": "H_M_Collection\\Services\\SmtpEmailSender.cs",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAawH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T15:26:53.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IEmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Services\\IEmailSender.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Services\\IEmailSender.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Services\\IEmailSender.cs",
+              "RelativeToolTip": "H_M_Collection\\Services\\IEmailSender.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T15:26:46.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-07T15:26:01.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "H_M_Collection\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAawEEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T15:25:52.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Program.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Program.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Program.cs",
+              "RelativeToolTip": "H_M_Collection\\Program.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAawCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T14:59:57.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "H_M_Collection\\Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T15:25:06.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "H_M_Collection\\Controllers\\AdminController.cs",
+              "ViewState": "AgIAAKQAAAAAAAAAAAAawLgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:57:14.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\Product.cs",
+              "RelativeToolTip": "H_M_Collection\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:56:14.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Photo.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\Photo.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Models\\Photo.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\Photo.cs",
+              "RelativeToolTip": "H_M_Collection\\Models\\Photo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:56:09.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Models\\HomeViewModel.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\HomeViewModel.cs",
+              "RelativeToolTip": "H_M_Collection\\Models\\HomeViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:56:06.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "H_M_Collection\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:56:02.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "H_M_CollectionDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Data\\H_M_CollectionDbContext.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Data\\H_M_CollectionDbContext.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Data\\H_M_CollectionDbContext.cs",
+              "RelativeToolTip": "H_M_Collection\\Data\\H_M_CollectionDbContext.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAABRwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:55:53.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "H_M_Collection\\Views\\Shared\\_Layout.cshtml.css",
+              "ViewState": "AgIAACwAAAAAAAAAAABRwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-11-06T13:33:00.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Satisfaction.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\Satisfaction.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Home\\Satisfaction.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\Satisfaction.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Home\\Satisfaction.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAIBJwGUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:19:52.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:04:35.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:04:35.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:04:33.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAKIAAAAAAAAAAIBJwKQAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:04:28.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AgIAAD8AAAAAAAAAAABBwHMAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:04:17.292Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "H_M_Collection\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "H_M_Collection\\Views\\Home\\About.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAwwFoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-06T13:04:13.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "H_M_Collection\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "H_M_Collection\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYBAAAAAAAAAAAhwKsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T13:04:04.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "site.css",
               "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "H_M_Collection\\wwwroot\\css\\site.css",
               "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\wwwroot\\css\\site.css",
               "RelativeToolTip": "H_M_Collection\\wwwroot\\css\\site.css",
-              "ViewState": "AgIAABwAAAAAAAAAAAApwDQAAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAwBAAAAAAAAAAArwBoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-11-05T10:03:24.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 23,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Admin\\Index.cshtml",
               "RelativeDocumentMoniker": "H_M_Collection\\Views\\Admin\\Index.cshtml",
               "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Admin\\Index.cshtml",
               "RelativeToolTip": "H_M_Collection\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAPAAAAAAAAAAAIBJwPIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-05T10:02:58.655Z"
+              "WhenOpened": "2025-11-05T10:02:58.655Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "H_M_Collection\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\resuldemir\\Source\\Repos\\H_M_Collection\\H_M_Collection\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "H_M_Collection\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAWwMwAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-11-05T10:02:43.293Z"
+              "WhenOpened": "2025-11-05T10:02:43.293Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,0 +1,31 @@
+﻿using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MimeKit;
+using Microsoft.Extensions.Configuration;
+
+namespace H_M_Collection.Services
+{
+ public class SmtpEmailSender : IEmailSender
+ {
+ private readonly IConfiguration _config;
+ public SmtpEmailSender(IConfiguration config)
+ {
+ _config = config;
+ }
+ public async Task SendEmailAsync(string to, string subject, string htmlBody)
+ {
+ var email = new MimeMessage();
+ email.From.Add(MailboxAddress.Parse(_config["Smtp:From"] ?? "no-reply@hmcollection.com"));
+ email.To.Add(MailboxAddress.Parse(to));
+ email.Subject = subject;
+ var body = new BodyBuilder { HtmlBody = htmlBody };
+ email.Body = body.ToMessageBody();
+
+ using var client = new SmtpClient();
+ await client.ConnectAsync(_config["Smtp:Host"], int.Parse(_config["Smtp:Port"] ?? "587"), false);
+ await client.AuthenticateAsync(_config["Smtp:User"], _config["Smtp:Pass"]);
+ await client.SendAsync(email);
+ await client.DisconnectAsync(true);
+ }
+ }
+}

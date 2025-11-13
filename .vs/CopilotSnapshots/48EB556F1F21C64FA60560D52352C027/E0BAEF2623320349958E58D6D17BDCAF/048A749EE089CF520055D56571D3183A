@@ -1,0 +1,21 @@
+﻿{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "GoogleReCaptcha": {
+    "SiteKey": "",
+    "SecretKey": ""
+  },
+  "Smtp": {
+    "Host": "smtp.gmail.com",
+    "Port": "587",
+    "User": "resu04653@gmail.com",
+    "Pass": "youo qzgm ygou dayr",
+    "From": "resuldemir.dev@gmail.com",
+    "UseStartTls": "true",
+    "UseSsl": "false"
+  }
+}

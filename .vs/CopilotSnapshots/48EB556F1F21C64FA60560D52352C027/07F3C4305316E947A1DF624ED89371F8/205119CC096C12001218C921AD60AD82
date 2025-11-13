@@ -1,0 +1,243 @@
+﻿@{
+    ViewData["Title"] = "Admin Paneli - H M Collection";
+    var pending = (System.Collections.Generic.List<H_M_Collection.Models.Comment>)ViewBag.PendingComments;
+    var approved = (System.Collections.Generic.List<H_M_Collection.Models.Comment>)ViewBag.ApprovedComments;
+    var photos = (System.Collections.Generic.List<H_M_Collection.Models.Photo>)ViewBag.Photos;
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content text-center">
+            <span class="hero-badge">Yönetim Paneli</span>
+            <h1 class="hero-title">Admin Paneli</h1>
+            <p class="hero-subtitle">İçerik yönetimi ve moderasyon</p>
+        </div>
+    </div>
+</section>
+
+<!-- Admin Content -->
+<section class="section">
+    <div class="container">
+        @if (TempData["AdminMsg"] != null)
+        {
+            <div class="alert alert-info alert-dismissible fade show" role="alert" data-aos="fade-up">
+                @TempData["AdminMsg"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <!-- Stats Cards -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4" data-aos="fade-up">
+                <div class="card stat-card border-0">
+                    <div class="card-body text-center">
+                        <h3 class="display-4 fw-bold mb-2">@pending.Count</h3>
+                        <p class="mb-0">Bekleyen Yorum</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card stat-card border-0">
+                    <div class="card-body text-center">
+                        <h3 class="display-4 fw-bold mb-2">@approved.Count</h3>
+                        <p class="mb-0">Onaylı Yorum</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card stat-card border-0">
+                    <div class="card-body text-center">
+                        <h3 class="display-4 fw-bold mb-2">@photos.Count</h3>
+                        <p class="mb-0">Toplam Fotoğraf</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Pending Comments -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="card border-0 shadow-soft">
+                    <div class="card-header bg-transparent border-0 py-3">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-clock text-warning me-2"></i>Onay Bekleyen Yorumlar
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        @if (pending.Any())
+                        {
+                            <div class="list-group list-group-flush">
+                                @foreach (var c in pending)
+                                {
+                                    <div class="list-group-item border-0 px-0">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="fw-semibold mb-0">@c.CustomerName</h6>
+                                            <small class="text-muted">@c.CreatedAt.ToLocalTime().ToString("dd MMM yyyy HH:mm")</small>
+                                        </div>
+                                        <p class="mb-3">@c.Content</p>
+                                        <div class="d-flex gap-2">
+                                            <form asp-action="ApproveComment" method="post" class="d-inline">
+                                                <input type="hidden" name="id" value="@c.Id" />
+                                                <button class="btn btn-success btn-sm" type="submit">
+                                                    <i class="fas fa-check me-1"></i>Onayla
+                                                </button>
+                                                @Html.AntiForgeryToken()
+                                            </form>
+                                            <form asp-action="DeleteComment" method="post" class="d-inline">
+                                                <input type="hidden" name="id" value="@c.Id" />
+                                                <button class="btn btn-outline-danger btn-sm" type="submit">
+                                                    <i class="fas fa-times me-1"></i>Sil
+                                                </button>
+                                                @Html.AntiForgeryToken()
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center py-4">
+                                <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                                <p class="text-muted mb-0">Onay bekleyen yorum bulunmuyor</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Approved Comments & Photo Upload -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <!-- Approved Comments -->
+                <div class="card border-0 shadow-soft mb-4">
+                    <div class="card-header bg-transparent border-0 py-3">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-check-circle text-success me-2"></i>Onaylı Yorumlar
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        @if (approved.Any())
+                        {
+                            <div class="list-group list-group-flush">
+                                @foreach (var c in approved)
+                                {
+                                    <div class="list-group-item border-0 px-0">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="fw-semibold mb-0">@c.CustomerName</h6>
+                                            <small class="text-muted">@c.CreatedAt.ToLocalTime().ToString("dd MMM yyyy HH:mm")</small>
+                                        </div>
+                                        <p class="mb-3">@c.Content</p>
+                                        <form asp-action="DeleteComment" method="post" class="d-inline">
+                                            <input type="hidden" name="id" value="@c.Id" />
+                                            <button class="btn btn-outline-danger btn-sm" type="submit">
+                                                <i class="fas fa-trash me-1"></i>Sil
+                                            </button>
+                                            @Html.AntiForgeryToken()
+                                        </form>
+                                    </div>
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center py-4">
+                                <i class="fas fa-comment-slash fa-3x text-muted mb-3"></i>
+                                <p class="text-muted mb-0">Onaylı yorum bulunmuyor</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Photo Upload -->
+                <div class="card border-0 shadow-soft">
+                    <div class="card-header bg-transparent border-0 py-3">
+                        <h5 class="card-title mb-0">
+                            <i class="fas fa-upload text-primary me-2"></i>Fotoğraf Yükle
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="UploadPhoto" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label class="form-label">Dosya Seçin</label>
+                                <input type="file" name="file" class="form-control" accept="image/*" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Açıklama (isteğe bağlı)</label>
+                                <input type="text" name="caption" class="form-control" placeholder="Fotoğraf açıklaması" />
+                            </div>
+                            <button class="btn btn-primary w-100" type="submit">
+                                <i class="fas fa-upload me-2"></i>Fotoğraf Yükle
+                            </button>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photos Section -->
+        <div class="mt-5" data-aos="fade-up">
+            <div class="card border-0 shadow-soft">
+                <div class="card-header bg-transparent border-0 py-3">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-images text-info me-2"></i>Yüklenen Fotoğraflar
+                    </h5>
+                </div>
+                <div class="card-body">
+                    @if (photos.Any())
+                    {
+                        <div class="row g-3">
+                            @foreach (var p in photos)
+                            {
+                                <div class="col-6 col-md-4 col-lg-3">
+                                    <div class="card h-100 border-0 shadow-sm">
+                                        <img class="card-img-top" src="@Url.Content($"~/uploads/{p.FileName}")" alt="@p.Caption" style="height: 200px; object-fit: cover;">
+                                        <div class="card-body">
+                                            @if (!string.IsNullOrWhiteSpace(p.Caption))
+                                            {
+                                                <p class="card-text small mb-2">@p.Caption</p>
+                                            }
+                                            <form asp-action="DeletePhoto" method="post">
+                                                <input type="hidden" name="id" value="@p.Id" />
+                                                <button class="btn btn-outline-danger btn-sm w-100" type="submit">
+                                                    <i class="fas fa-trash me-1"></i>Sil
+                                                </button>
+                                                @Html.AntiForgeryToken()
+                                            </form>
+                                            <div class="mt-2 d-flex gap-2">
+                                                @if (p.IsPublic)
+                                                {
+                                                    <form asp-action="SetPhotoPrivate" method="post" class="d-inline">
+                                                        <input type="hidden" name="id" value="@p.Id" />
+                                                        <button class="btn btn-warning btn-sm w-100" type="submit">Gizle</button>
+                                                        @Html.AntiForgeryToken()
+                                                    </form>
+                                                }
+                                                else
+                                                {
+                                                    <form asp-action="SetPhotoPublic" method="post" class="d-inline">
+                                                        <input type="hidden" name="id" value="@p.Id" />
+                                                        <button class="btn btn-success btn-sm w-100" type="submit">Ana Sayfada Göster</button>
+                                                        @Html.AntiForgeryToken()
+                                                    </form>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-4">
+                            <i class="fas fa-images fa-3x text-muted mb-3"></i>
+                            <p class="text-muted mb-0">Henüz fotoğraf yüklenmedi</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

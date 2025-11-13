@@ -1,0 +1,125 @@
+﻿@{
+    ViewData["Title"] = "İletişim - H M Collection";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="hero-content text-center">
+            <span class="hero-badge">İletişim</span>
+            <h1 class="hero-title">Bize Ulaşın</h1>
+            <p class="hero-subtitle">Sorularınız için buradayız</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="display-5 fw-bold mb-4">İletişim <span class="text-gradient">Bilgilerimiz</span></h2>
+                <p class="lead mb-5">Size en iyi hizmeti verebilmek için buradayız. Soru ve görüşleriniz için bize ulaşabilirsiniz.</p>
+
+                <div class="d-flex flex-column gap-4">
+                    <div class="d-flex align-items-start">
+                        <div class="icon-wrapper bg-brand-extra-light text-brand rounded-circle me-4"
+                             style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-envelope fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-semibold mb-2">E-posta</h5>
+                            <p class="text-muted mb-1">info@hmcollection.com</p>
+                            <small class="text-muted">En geç 24 saat içinde dönüş yapıyoruz</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start">
+                        <div class="icon-wrapper bg-brand-extra-light text-brand rounded-circle me-4"
+                             style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-phone fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-semibold mb-2">Telefon</h5>
+                            <p class="text-muted mb-1">+90 (555) 123 45 67</p>
+                            <small class="text-muted">Çalışma saatleri: 09:00 - 18:00</small>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-start">
+                        <div class="icon-wrapper bg-brand-extra-light text-brand rounded-circle me-4"
+                             style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-map-marker-alt fa-lg"></i>
+                        </div>
+                        <div>
+                            <h5 class="fw-semibold mb-2">Adres</h5>
+                            <p class="text-muted mb-1">H M Collection Showroom</p>
+                            <small class="text-muted">İstanbul, Türkiye</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="border-radius-lg overflow-hidden shadow-soft">
+                    <div class="card border-0">
+                        <div class="card-body p-0">
+                            <div class="ratio ratio-16x9">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.67419862065!2d28.979129276478476!3d41.04021577132446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1d021c7c625%3A0x3caed1ffac56b5ab!2s%C4%B0stanbul%2C%20T%C3%BCrkiye!5e0!3m2!1str!2str!4v1699999999999!5m2!1str!2str"
+                                        style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-3">
+                    <small class="text-muted">Konum temsili olarak gösterilmiştir</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="section section-alt">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Mesaj Gönderin</h2>
+                    <p class="text-muted">Size nasıl yardımcı olabileceğimizi bildirin</p>
+                </div>
+
+                <div class="card border-0 shadow-soft">
+                    <div class="card-body p-4 p-md-5">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Adınız *</label>
+                                    <input type="text" class="form-control" placeholder="Adınızı giriniz">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">E-posta *</label>
+                                    <input type="email" class="form-control" placeholder="email@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Konu</label>
+                                    <input type="text" class="form-control" placeholder="Mesaj konusu">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Mesajınız *</label>
+                                    <textarea class="form-control" rows="5" placeholder="Mesajınızı buraya yazınız..."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100">
+                                        <i class="fas fa-paper-plane me-2"></i>Mesajı Gönder
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
