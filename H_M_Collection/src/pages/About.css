@@ -1,0 +1,35 @@
+.about {
+  width: 100%;
+}
+
+.fs-2 {
+  font-size: 2rem;
+}
+
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-wrapper:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: var(--shadow-md);
+}
+
+.bg-brand-extra-light {
+  background-color: var(--brand-extra-light);
+}
+
+.rounded-circle {
+  border-radius: 50%;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
